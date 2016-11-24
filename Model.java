@@ -1,4 +1,4 @@
-package Gruppe_Burian_Moser_Wintersperger;
+package Burian_Moser_Wintersperger;
 
 import javax.swing.*;
 
@@ -9,56 +9,57 @@ import javax.swing.*;
  */
 public class Model {
 	private int counter;
-	private boolean[][] light;
+	private boolean[] light;
 	private Model(){
 		this.counter=0;
-		this.light=new boolean[5][5];
-		for(int i=0;i<5;i++){
-			for(int j=0;j<5;j++){
-				this.light[i][j]=false;
+		this.light=new boolean[25];
+		for(int i=0;i<25;i++){
+				this.light[i]=false;
 			}
-		}
-		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
-		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
-		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
-		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
+		this.light[(int)(Math.random()*(25+1))]=true;
+		this.light[(int)(Math.random()*(25+1))]=true;
+		this.light[(int)(Math.random()*(25+1))]=true;
+		this.light[(int)(Math.random()*(25+1))]=true;
 	}
 	/**
 	 * Invertiert die Buttons um den gedrückten Buton
-	 * @param x die x koordinate des Buttons
-	 * @param y die y koordinate des Buttons
+	 * @param x die stelle des Buttons im array
 	 */
-	public void invert(int x, int y){
-		
-		if(this.light[x][y]==true){
-			this.light[x][y]=false;
-		}
-		else{
-			this.light[x][y]=true;
-		}
-		
-		if(this.light[x+1][y]==true){
-			this.light[x+1][y]=false;
-		}else{
-			this.light[x+1][y]=true;
-		}
-		
-		if(this.light[x-1][y]==true){
-			this.light[x-1][y]=false;
-		}else{
-			this.light[x-1][y]=true;
-		}
-		
-		if(this.light[x][y+1]==true){
-			this.light[x][y+1]=false;
-		}else{
-			this.light[x][y+1]=true;
-		}
-		
-		if(this.light[x][y-1]==true){
-			this.light[x][y-1]=false;
-		}else{
-			this.light[x][y-1]=true;
+	public void invert(int x){
+			
+		try{
+				if(this.light[x]==true){
+				this.light[x]=false;
+				}
+				else{
+					this.light[x]=true;
+				}
+				
+				if(this.light[x+1]==true){
+					this.light[x+1]=false;
+				}else{
+					this.light[x+1]=true;
+				}
+				
+				if(this.light[x-1]==true){
+					this.light[x-1]=false;
+				}else{
+					this.light[x-1]=true;
+				}
+				
+				if(this.light[x+5]==true){
+					this.light[x+5]=false;
+				}else{
+					this.light[x+5]=true;
+				}
+				
+				if(this.light[x-5]==true){
+					this.light[x-5]=false;
+				}else{
+					this.light[x-5]=true;
+				}
+		}catch(Exception e){
+			
 		}
 		counter++;
 	}
@@ -67,21 +68,17 @@ public class Model {
 	 * @return true wenn alle buttons off sind. false wen nicht
 	 */
 	public boolean finish(){
-		for(int i=0;i<5;i++){
-			for(int j=0;j<5;j++){
-				if(this.light[i][j]==true)return false;
-			}
+		for(int i=0;i<25;i++){
+			if(this.light[i]==true)return false;
 		}
 		return true;
 	}
 	/**
-	 * gibt den boolean für den gefragten button zurück
-	 * @param x die x koordinate des Buttons
-	 * @param y die y koordinate des Buttons
-	 * @return ob der Button leuchted oder nicht
+	 * gibt das light array zurück
+	 * @return das light array
 	 */
-	public boolean getButtonStatus(int x, int y){
-		return this.light[x][y];
+	public boolean[] getLight(){
+		return this.light;
 	}
 	/**
 	 * get methode für counter
