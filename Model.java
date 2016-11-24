@@ -53,7 +53,7 @@ public class Model {
 	public boolean Finish(){
 		for(int i=0;i<5;i++){
 			for(int j=0;j<5;j++){
-				if(this.light[i][j]==false)return false;
+				if(this.light[i][j]==true)return false;
 			}
 		}
 		return true;
@@ -66,5 +66,8 @@ public class Model {
 	 */
 	public boolean getButtonStatus(int x, int y){
 		return this.light[x][y];
+	}
+	public int getCounter(){
+		return this.counter;
 	}
 }
