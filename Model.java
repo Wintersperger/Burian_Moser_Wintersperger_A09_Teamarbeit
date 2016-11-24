@@ -18,11 +18,11 @@ public class Model {
 				this.light[i][j]=false;
 			}
 		}
-		this.light[2][4]=true;
-		this.light[4][1]=true;
-		this.light[1][3]=true;
-		this.light[5][5]=true;
-		this.light[1][5]=true;
+		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
+		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
+		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
+		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
+		this.light[(int)(Math.random()*5)][(int)(Math.random()*5)]=true;
 	}
 	/**
 	 * Invertiert die Buttons um den gedrückten Buton
@@ -43,4 +43,3 @@ public class Model {
 		return true;
 	}
 }
-
