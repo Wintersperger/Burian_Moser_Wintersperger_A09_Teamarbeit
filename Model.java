@@ -16,10 +16,10 @@ public class Model {
 		for(int i=0;i<25;i++){
 				this.light[i]=false;
 			}
-		this.light[(int)(Math.random()*(25+1))]=true;
-		this.light[(int)(Math.random()*(25+1))]=true;
-		this.light[(int)(Math.random()*(25+1))]=true;
-		this.light[(int)(Math.random()*(25+1))]=true;
+		this.light[(int)(Math.random()*(25))]=true;
+		this.light[(int)(Math.random()*(25))]=true;
+		this.light[(int)(Math.random()*(25))]=true;
+		this.light[(int)(Math.random()*(25))]=true;
 	}
 	/**
 	 * Invertiert die Buttons um den gedrückten Buton
