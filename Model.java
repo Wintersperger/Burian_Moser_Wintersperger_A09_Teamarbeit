@@ -10,7 +10,7 @@ import javax.swing.*;
 public class Model {
 	private int counter;
 	private boolean[] light;
-	private Model(){
+	public Model(){
 		this.counter=0;
 		this.light=new boolean[25];
 		for(int i=0;i<25;i++){
