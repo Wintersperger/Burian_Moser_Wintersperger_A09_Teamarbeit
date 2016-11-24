@@ -14,13 +14,11 @@ import java.awt.*;
  *
  */
 public class View extends JFrame {
-    public static void main(String[] args) {
-        new View();
-    }
-
+	
     private Controller c;
-    private JFrame F1;
-
+    private JFrame F2;
+    
+	private JLabel glueckwunsch;
     private JLabel l1;
     private Container c1;
 
@@ -69,18 +67,23 @@ public class View extends JFrame {
 
         this.setVisible(true);
     }
-
+    
+    public void finishFrame(int counter){
+    	this.F2 = new JFrame();
+		this.F2.setTitle("Gewonnen");
+		this.F2.setSize(400, 300);
+		this.F2.setDefaultCloseOperation(3);
+		this.F2.setLocationRelativeTo(null);
+		this.glueckwunsch = new JLabel("Sie haben " + counter + " Züge benötigt");
+		this.F2.add(this.glueckwunsch);
+		this.F2.setVisible(true);
+    }
+    
     public boolean[] getLeucht() {
         return leucht;
     }
     public void setLeucht(boolean[] leucht) {
-        leucht = leucht;
-    }
-    public JFrame getF1() {
-        return F1;
-    }
-    public void setF1(JFrame f1) {
-        F1 = f1;
+        this.leucht = leucht;
     }
     public JLabel getL1() {
         return l1;
@@ -94,5 +97,7 @@ public class View extends JFrame {
     public void setButtons(JButton[] buttons) {
         this.buttons = buttons;
     }
+    public JFrame getF2() {
+		return this.F2;
+	}
 }
-
