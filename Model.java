@@ -26,6 +26,8 @@ public class Model {
 	}
 	/**
 	 * Invertiert die Buttons um den gedrückten Buton
+	 * @param x die x koordinate des Buttons
+	 * @param y die y koordinate des Buttons
 	 */
 	public void invert(int x, int y){
 		if(this.light[x][y]==true)this.light[x][y]=false;
@@ -56,6 +58,12 @@ public class Model {
 		}
 		return true;
 	}
+	/**
+	 * 
+	 * @param x die x koordinate des Buttons
+	 * @param y die y koordinate des Buttons
+	 * @return ob der Button leuchted oder nicht
+	 */
 	public boolean getButtonStatus(int x, int y){
 		return this.light[x][y];
 	}
