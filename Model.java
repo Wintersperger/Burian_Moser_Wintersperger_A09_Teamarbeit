@@ -27,7 +27,21 @@ public class Model {
 	/**
 	 * Invertiert die Buttons um den gedrückten Buton
 	 */
-	public void invert(){
+	public void invert(int x, int y){
+		if(this.light[x][y]==true)this.light[x][y]=false;
+		if(this.light[x][y]==false)this.light[x][y]=true;
+		
+		if(this.light[x+1][y]==true)this.light[x+1][y]=false;
+		if(this.light[x+1][y]==false)this.light[x+1][y]=true;
+		
+		if(this.light[x-1][y]==true)this.light[x-1][y]=false;
+		if(this.light[x-1][y]==false)this.light[x-1][y]=true;
+		
+		if(this.light[x][y+1]==true)this.light[x][y+1]=false;
+		if(this.light[x][y+1]==false)this.light[x][y+1]=true;
+		
+		if(this.light[x][y-1]==true)this.light[x][y-1]=false;
+		if(this.light[x][y-1]==false)this.light[x][y-1]=true;
 		counter++;
 	}
 	/**
@@ -41,5 +55,8 @@ public class Model {
 			}
 		}
 		return true;
+	}
+	public boolean getButtonStatus(int x, int y){
+		return this.light[x][y];
 	}
 }
